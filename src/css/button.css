@@ -1,0 +1,38 @@
+.button1-large {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-size: large;
+    font-family: arial, sans-serif;
+    color: #404040;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .button1-medium {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-size: medium;
+    font-family: arial, sans-serif;
+    color: #404040;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .button3{
+    width: 80%;
+    height: 40px;
+    margin: 5% 0px 0px 10%;
+    background-color: #1A75BB;
+    color: whitesmoke;
+    border: none;
+    box-shadow: grey 2px 2px 4px;
+    font-size: medium;
+  }
+  .button3:hover{
+      cursor: pointer;
+      box-shadow: grey -2px -2px 4px;
+  }

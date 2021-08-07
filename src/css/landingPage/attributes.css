@@ -1,0 +1,13 @@
+.atrCard{
+
+    width: 140px;
+    height: 125px;
+    box-shadow: grey 2px 2px 3px;
+    margin: 10px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.atrCard p{
+    margin:10px;
+}

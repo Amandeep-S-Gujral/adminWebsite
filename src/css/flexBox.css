@@ -1,0 +1,11 @@
+.flexBox1{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50vw;
+  }
+
+.flexBox2{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px
+}
