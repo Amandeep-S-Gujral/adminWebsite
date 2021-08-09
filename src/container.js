@@ -1,21 +1,25 @@
 class Container {
-    setInternalModule(name, module) {
-        this[name] = module(this)
+    setInternalModule(name, module){
+        this[name] = () => module(this)
     }
 
-    setExternalModule(name, module) {
-        this[name] = module
+    setModel(name, model){
+        this[name] = () => model()
     }
 
-    setModel(name, model) {
-        this[name] = model()
+    setExternalModule(name, module){
+        this[name] = () => module
     }
 
-    setComponent(name, component) {
+    setUrl(name, url){
+        this[name] = () => new URL(url)
+    }
+
+    setComponent(name, component){
         this[name] = component
     }
 
-    getContainer() {
+    getContainer(){
         return this
     }
 }

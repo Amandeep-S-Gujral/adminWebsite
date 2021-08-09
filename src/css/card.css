@@ -1,5 +1,4 @@
-.atrCard{
-
+.card1{
     width: 140px;
     height: 125px;
     box-shadow: grey 2px 2px 3px;
@@ -8,6 +7,6 @@
     padding-top: 25px;
 }
 
-.atrCard p{
+.card1 p{
     margin:10px;
 }

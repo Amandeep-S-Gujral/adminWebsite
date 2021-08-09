@@ -5,9 +5,9 @@ const WithAttributeData = (container) => {
         constructor(props) {
             super(props)
             this.state = {
-                website: container.config.getValue('website'),
-                attributes: container.config.getValue('attributes'),
-                attributeList: container.config.getValue('attributeList'),
+                website: container.config().getValue('website'),
+                attributes: container.config().getValue('attributes'),
+                attributeList: container.config().getValue('attributeList'),
                 attributeSelection: 'easyManagement'
             }
             this.handleClick = this.handleClick.bind(this)

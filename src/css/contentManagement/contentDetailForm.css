@@ -1,0 +1,49 @@
+.formBoxContainer{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: rgba(128, 128, 128, .5);
+}
+
+.formBox1{
+    width: 50vw;
+    background-color: whitesmoke;
+}
+
+.formBox1 header{
+    display: flex;
+    background-color: #1A75BB;
+    padding: 10px;
+    color: white;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: large;
+}
+
+.formBox1 form{
+ margin: 2%;
+}
+
+.formBox1 form div{
+    display: flex;
+    align-items: center;
+    margin: 2% 0px 2% 0px;
+    align-items: center;
+}
+
+.formBox1 form div label{
+    margin:2%;
+    width: 100px;
+}
+
+.formBox1 form div input{
+    height: 40px;
+    width: 30rem;
+}
+
+.formBox1 form div select{
+    height: 40px;
+}

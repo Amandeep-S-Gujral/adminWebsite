@@ -22,6 +22,17 @@
     margin-left: 10px;
   }
 
+  .button2{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: white;
+  }
+
+  .button2:hover{
+    cursor: pointer;
+  }
+
   .button3{
     width: 80%;
     height: 40px;
@@ -35,4 +46,29 @@
   .button3:hover{
       cursor: pointer;
       box-shadow: grey -2px -2px 4px;
+  }
+
+  .button3-cancle{
+    width: 80%;
+    height: 40px;
+    margin: 5% 0px 0px 10%;
+    background-color: gray;
+    color: whitesmoke;
+    border: none;
+    box-shadow: grey 2px 2px 4px;
+    font-size: medium;
+  }
+  .button3-cancle:hover{
+      cursor: pointer;
+      box-shadow: grey -2px -2px 4px;
+  }
+
+  .button4{
+    height: 40px;
+    background-color: #1A75BB;
+    color: whitesmoke;
+    border: none;
+    box-shadow: grey 2px 2px 4px;
+    font-size: medium;
+    padding:10px
   }

@@ -51,4 +51,7 @@
 
 @import "./landingPage//signIn.css";
 @import "./button.css";
-@import "./flexBox.css"
+@import "./flexBox.css";
+@import "./card.css";
+@import "./table.css";
+@import "./contentManagement/contentDetailForm.css"

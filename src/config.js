@@ -2,6 +2,7 @@ const configFactory = () => new Config()
 
 class Config {
     constructor() {
+        this.baseUrl = 'http://localhost:5001/prdnotesdotcom/us-central1/app/api'
         this.website = 'prdnotes'
         this.attributes = [
             {
