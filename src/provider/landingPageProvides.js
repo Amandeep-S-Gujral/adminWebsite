@@ -1,5 +1,6 @@
 import Container from '../container'
 
+import { Link } from 'react-router-dom'
 import {configFactory} from '../config'
 import Attributes from '../components/landingPage/Attributes'
 import AttributeList from '../components/landingPage/AttributeList'
@@ -12,6 +13,9 @@ import WithAttributeData from '../components/landingPage/WithAttributeData'
 const container = new Container()
 
 container.setModel('config', configFactory)
+
+container.setExternalModule('Link', Link)
+
 
 container.setComponent('Attributes', Attributes)
 container.setComponent('AttributeList', AttributeList)

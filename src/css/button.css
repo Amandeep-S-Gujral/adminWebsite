@@ -72,3 +72,15 @@
     font-size: medium;
     padding:10px
   }
+
+  .menuButton{
+    background: none;
+    border: none;
+    padding: none;
+    font-size: xx-large;
+    color: white;
+  }
+
+  .menuButton:hover{
+    cursor: pointer;
+  }

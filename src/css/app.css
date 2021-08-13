@@ -36,7 +36,8 @@
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 50px
+  height: 50px;
+  color: white
 }
 
 .logo{
@@ -54,4 +55,6 @@
 @import "./flexBox.css";
 @import "./card.css";
 @import "./table.css";
-@import "./contentManagement/contentDetailForm.css"
+@import "./link.css";
+@import "./contentManagement/contentDetailForm.css";
+@import "./header/navMenu.css"

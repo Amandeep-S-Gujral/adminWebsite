@@ -23,7 +23,7 @@ const ContentListTable = ({ data, handleView }) => {
                     <td>{obj.cat}</td>
                     <td>{new Date(obj.timestamp * 1000).toDateString()}</td>
                     <td>{obj.post}</td>
-                    <td><a href={obj.url} target="_blank">click</a></td>
+                    <td><a href={obj.url} target="_blank" rel="noreferrer">click</a></td>
                     <td><button className='link1' value={obj.cid} onClick={handleView}>View</button></td>
                 </tr>)}
             </tbody>

@@ -6,6 +6,7 @@ const WithContentList = (container) => {
             super(props)
             this.state = {
                 showContentDetail: false,
+                path: this.props.match.path
             }
             this.handleView = this.handleView.bind(this)
         }
@@ -28,13 +29,17 @@ const WithContentList = (container) => {
         render() {
             if (this.state.data === undefined) {
                 return (
+                    <div className='display2'>
+                    <container.HeaderWithNav container={container} />
                     <div>Loading...</div>
+                    </div>
                 )
             }
             return (
                 <>
                     <div className='display2'>
                         {this.state.showContentDetail && <container.ContentDetailForm data={this.state.detailFormData} handleClose={this.handleView} />}
+                        <container.HeaderWithNav container={container} path={this.state.path} />
                         <container.ContentListTable data={this.state.data} handleView={this.handleView} />
                     </div>
                 </>

@@ -1,0 +1,21 @@
+#navMenu{
+    position: absolute;
+    display: inline;
+    background-color:whitesmoke;
+    width: 30vw;
+    margin-top: 200px;
+}
+
+#navMenu ul {
+    list-style: none;
+    padding: 0px 10px 0px 10px;
+}
+
+#navMenu ul li{
+    padding: 10px;
+}
+
+#menuIcon{
+    width: 10px;
+    height: 2px;
+}

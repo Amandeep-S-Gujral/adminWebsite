@@ -9,7 +9,7 @@ function App() {
     <div className="App">
      <Router>
        <Route exact path='/' render={() => <LandingPage />} />
-       <Route path='/contentManagement' render={() => <ContentManagement />} />
+       <Route path='/contentManagement' render={routerProps => <ContentManagement {...routerProps} />} />
      </Router>
     </div>
   );
