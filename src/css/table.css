@@ -1,9 +1,18 @@
-th, td {
-  padding: 10px;
+table {
+  width: 100vw;
 }
 
-th{
-    background-color: lightblue;
+th, td {
+  padding: 5px;
+}
+
+th {
+  height: 30px;
+  background-color: lightblue;
+}
+
+.centerAlign{
+  text-align: center;
 }
 
 tr:nth-child(even) {

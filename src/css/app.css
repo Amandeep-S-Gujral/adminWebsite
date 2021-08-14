@@ -39,6 +39,13 @@
   height: 50px;
   color: white
 }
+.bar2{
+  background-color: whitesmoke;
+  text-align: right;
+  align-items: center;
+  color: whitesmoke;
+  padding: .5%;
+}
 
 .logo{
   background-color: white;

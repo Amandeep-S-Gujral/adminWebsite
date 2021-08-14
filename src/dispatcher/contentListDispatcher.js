@@ -8,7 +8,7 @@ class ContentListDispatcher {
     }
 
     async getContentListByType(type) {
-        let data
+        let res
         const req = this.apiRequestModel.setHttpMethod('GET').setBodyNull()
         await fetch(`${this.baseUrl}/contentList/?typ=${type}`, { ...req })
             .then(res => {
@@ -17,9 +17,41 @@ class ContentListDispatcher {
                 }
                 throw new Error(`response failed, code: ${res.status}`)
             })
-            .then(obj => data = obj)
+            .then(obj => res = obj)
             .catch(err => { throw new Error(err) })
-        return data
+        return res
+    }
+
+    async addNewContentToList(data) {
+        console.log(data)
+        let res
+        let req = this.apiRequestModel.setHttpMethod('POST').setBody(data)
+        await fetch(`${this.baseUrl}/contentList`, { ...req })
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+                throw new Error(`response failed, code: ${res.status}`)
+            })
+            .then(obj => res = obj)
+            .catch(err => { throw new Error(err) })
+        return res
+    }
+
+    async setEntryInContentList(data) {
+        let res
+        let req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data)
+        await fetch(`${this.baseUrl}/contentList`, { ...req })
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+                throw new Error(`response failed, code: ${res.status}`)
+            })
+            .then(obj => res = obj)
+            .catch(err => { throw new Error(err) })
+        return res
+
     }
 }
 
