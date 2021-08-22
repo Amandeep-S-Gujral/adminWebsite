@@ -1,0 +1,10 @@
+.checkbox1 {
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox1 input {
+  cursor: pointer;
+  transform: scale(2);
+}

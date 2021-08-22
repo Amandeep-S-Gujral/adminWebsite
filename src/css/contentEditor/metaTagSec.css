@@ -1,0 +1,42 @@
+.formBox2 {
+  width: 40vw;
+  height: 80vh;
+}
+
+.formBox2 header {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: large;
+}
+
+.formBox2 form {
+  margin: 2%;
+}
+
+.formBox2 form div {
+  display: flex;
+  align-items: center;
+  margin: 2% 0px 2% 0px;
+  align-items: center;
+}
+
+.formBox2 form div label {
+  margin: 2%;
+  width: 100px;
+}
+
+.formBox2 form div textarea{
+    width: 25rem;
+    height: 100px;
+}
+
+.formBox2 form div input {
+  height: 40px;
+  width: 25rem;
+}
+
+.formBox2 form div select {
+  height: 40px;
+}

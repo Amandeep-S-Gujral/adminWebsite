@@ -2,57 +2,36 @@ const contentListDispatcherFactory = (obj) => new ContentListDispatcher(obj)
 
 class ContentListDispatcher {
     constructor(container) {
-        this.baseUrl = container.config().getValue('baseUrl')
+        this.url = new URL(container.config().getValue('baseUrl')+'/contentList/')
         this.apiRequestModel = container.apiRequestModel()
-        this.container = container
     }
 
-    async getContentListByType(type) {
-        let res
+    async getContentListByType(typ) {
         const req = this.apiRequestModel.setHttpMethod('GET').setBodyNull()
-        await fetch(`${this.baseUrl}/contentList/?typ=${type}`, { ...req })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error(`response failed, code: ${res.status}`)
-            })
-            .then(obj => res = obj)
-            .catch(err => { throw new Error(err) })
-        return res
+        this.url.search = new URLSearchParams({ typ })
+        return await this.fetch(this.url, {...req})
     }
 
     async addNewContentToList(data) {
-        console.log(data)
-        let res
         let req = this.apiRequestModel.setHttpMethod('POST').setBody(data)
-        await fetch(`${this.baseUrl}/contentList`, { ...req })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error(`response failed, code: ${res.status}`)
-            })
-            .then(obj => res = obj)
-            .catch(err => { throw new Error(err) })
-        return res
+        return await this.fetch(this.url, {...req})
     }
 
     async setEntryInContentList(data) {
-        let res
         let req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data)
-        await fetch(`${this.baseUrl}/contentList`, { ...req })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error(`response failed, code: ${res.status}`)
-            })
-            .then(obj => res = obj)
-            .catch(err => { throw new Error(err) })
-        return res
-
+        return await this.fetch(this.url, {...req})
     }
+
+    async fetch(url, req) {
+        let data
+        await fetch(url, req)
+            .then(res => res.json())
+            .then(obj => data = obj)
+            .catch(e => alert(e))
+        return data
+    }
+
+
 }
 
 export default contentListDispatcherFactory

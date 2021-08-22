@@ -1,0 +1,11 @@
+.notifier-wait{
+    font-size: larger;
+    color: yellowgreen;
+    margin: 10px;
+}
+
+.notifier-error{
+    font-size: larger;
+    color: orangered;
+    margin: 10px;
+}

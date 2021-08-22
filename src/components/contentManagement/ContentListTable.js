@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ContentListTable = ({ data, handleView }) => {
+const ContentListTable = ({ container, data, handleView }) => {
     return (
         <table>
             <thead>
@@ -26,7 +26,7 @@ const ContentListTable = ({ data, handleView }) => {
                     <td>{`${obj.post}`}</td>
                     <td className="centerAlign"><a href={obj.url} className="link1" target="_blank" rel="noreferrer">click</a></td>
                     <td className="centerAlign"><button className='button4' value={obj.cid} onClick={handleView}>View</button></td>
-                    <td className="centerAlign"><button className='button4'>Edit</button></td>
+                    <td className="centerAlign"><container.Link className='link2' to={`/contentEditor/${obj.cid}`} target="_blank" >Edit</container.Link></td>
                 </tr>)}
             </tbody>
         </table>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const WithContentList = (container) => {
-    return class contentListContainer extends React.Component {
+    return class ContentListContainer extends React.Component {
         constructor(props) {
             super(props)
             this.state = {
@@ -26,12 +26,12 @@ const WithContentList = (container) => {
             this.fetchList()
         }
 
-        componentDidUpdate(prevProps, prevState){
-            if(prevState.filter !== this.state.filter){
+        componentDidUpdate(prevProps, prevState) {
+            if (prevState.filter !== this.state.filter) {
                 this.fetchList()
             }
         }
-        async fetchList(){
+        async fetchList() {
             const data = await container.contentListDispatcher().getContentListByType(this.state.filter.category)
             this.setState({ data })
         }
@@ -82,27 +82,49 @@ const WithContentList = (container) => {
         }
 
         render() {
-            if (Object.keys(this.state.data).length === 0) {
+            const { data, path, listFormData, showContentDetail } = this.state
+
+            //api response catch block
+            if (Object.keys(data).length === 0) {
                 return (
                     <div className='display2'>
                         <container.HeaderWithNav container={container} />
                         <container.ToolBar handleNew={this.handleNew} handleSearch={this.handleSearch} />
-                        <div>Loading...</div>
+                        <container.Loading />
                     </div>
                 )
             }
-            return (
-                <>
+
+            //error catch block
+            if (data.err !== undefined) {
+                return (
                     <div className='display2'>
-                        {this.state.showContentDetail && <container.ContentListForm
-                            data={this.state.listFormData}
+                        {showContentDetail && <container.ContentListForm
+                            data={listFormData}
                             handleChange={this.handleChange}
                             handleClose={this.handleClose}
                             handleSubmit={this.handleSubmit}
                         />}
-                        <container.HeaderWithNav container={container} path={this.state.path} />
+                        <container.HeaderWithNav container={container} />
                         <container.ToolBar handleNew={this.handleNew} handleSearch={this.handleSearch} />
-                        <container.ContentListTable data={this.state.data} handleView={this.handleView} />
+                        <container.Error err={data.err} />
+                    </div>
+                )
+            }
+
+            //final data render
+            return (
+                <>
+                    <div className='display2'>
+                        {showContentDetail && <container.ContentListForm
+                            data={listFormData}
+                            handleChange={this.handleChange}
+                            handleClose={this.handleClose}
+                            handleSubmit={this.handleSubmit}
+                        />}
+                        <container.HeaderWithNav container={container} path={path} />
+                        <container.ToolBar handleNew={this.handleNew} handleSearch={this.handleSearch} />
+                        <container.ContentListTable container={container} data={data} handleView={this.handleView} />
                     </div>
                 </>
             )
