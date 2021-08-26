@@ -4,6 +4,7 @@ class ContentBodyDispatcher{
     constructor(container){
         this.url = new URL(container.config().getValue('baseUrl')+'/contentBody/')
         this.apiRequestModel = container.apiRequestModel()
+        this.token = container.cookies.get('idToken')
     }
 
     async getContentBodyByCid(cid){
@@ -13,7 +14,8 @@ class ContentBodyDispatcher{
     }
 
     async setContentBody(data){
-        const req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data)
+        await this.container.authDispatcher().getIdToken()
+        const req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data).setAuth(this.token)
         return await this.fetch(this.url, {...req})
     }
 

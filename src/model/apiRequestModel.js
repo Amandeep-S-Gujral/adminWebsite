@@ -20,8 +20,9 @@ class ApiRequestModel {
         throw new Error('invalid http method')
     }
 
-    setAuthorization(token) {
-        this.authorization = token
+    setAuth(token) {
+        this.headers.authorization = token
+        return this
     }
 
     setBody(obj) {

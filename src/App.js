@@ -1,20 +1,24 @@
 import React from 'react'
+import PrivateRoute from './components/general/PrivateRoute';
 import LandingPage from './provider/landingPageProvides'
 import ContentManagement from './provider/contentListProvider';
 import ContentEditor from './provider/contentBodyProvider';
-import{BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './css/app.css';
 
-function App() {
-  return (
-    <div className="App">
-     <Router>
-       <Route exact path='/' render={() => <LandingPage />} />
-       <Route path='/contentManagement' render={routerProps => <ContentManagement {...routerProps} />} />
-       <Route path='/contentEditor/:cid' render={routerProps => <ContentEditor {...routerProps}/>} />
-     </Router>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+          <Router>
+            <Route exact path='/' render={() => <LandingPage />} />
+            <PrivateRoute path='/contentManagement' component={ContentManagement} />
+            <PrivateRoute path='/contentEditor/:cid' component={ContentEditor} />
+            {/* <Route path='/perview/article/:cid' render={routerProps => <PreviewArticle {...routerProps} />} /> */}
+          </Router>
+      </div>
+    );
+  }
 }
 
 export default App;

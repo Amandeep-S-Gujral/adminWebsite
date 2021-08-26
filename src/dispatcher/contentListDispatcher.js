@@ -1,24 +1,28 @@
-const contentListDispatcherFactory = (obj) => new ContentListDispatcher(obj)
+const contentListDispatcherFactory = (container) => new ContentListDispatcher(container)
 
 class ContentListDispatcher {
     constructor(container) {
         this.url = new URL(container.config().getValue('baseUrl')+'/contentList/')
         this.apiRequestModel = container.apiRequestModel()
+        this.token = container.cookies.get('idToken')
+        this.container = container
     }
 
     async getContentListByType(typ) {
-        const req = this.apiRequestModel.setHttpMethod('GET').setBodyNull()
+        const req = this.apiRequestModel.setHttpMethod('GET').setBodyNull().setAuth(this.token)
         this.url.search = new URLSearchParams({ typ })
         return await this.fetch(this.url, {...req})
     }
 
     async addNewContentToList(data) {
-        let req = this.apiRequestModel.setHttpMethod('POST').setBody(data)
+        await this.container.authDispatcher().getIdToken()
+        let req = this.apiRequestModel.setHttpMethod('POST').setBody(data).setAuth(this.token)
         return await this.fetch(this.url, {...req})
     }
 
     async setEntryInContentList(data) {
-        let req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data)
+        await this.container.authDispatcher().getIdToken()
+        let req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data).setAuth(this.token)
         return await this.fetch(this.url, {...req})
     }
 

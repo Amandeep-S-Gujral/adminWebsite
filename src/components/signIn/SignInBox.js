@@ -1,12 +1,16 @@
 import React from 'react'
 
-const SignInBox = () => {
-    return(
+const SignInBox = ({ handleChange, handleSignIn, email, password }) => {
+    return (
         <div id='signIn'>
-            <input className='inputBox1' type='email' placeholder='email*' required/>
-            <input className='inputBox1' type='password' placeholder='password*' required/>
-            <input className='inputBox1' type='text' placeholder='referral code' />
-            <button className='button3'>Sign in</button>
+            <header>
+                <h3>SignIn</h3>
+            </header>
+            <form>
+                <input className='inputBox1' id='email' type='email' value={email} onChange={handleChange} placeholder='email*' autoComplete='username' required />
+                <input className='inputBox1' id='password' type='password' value={password} onChange={handleChange} placeholder='password*' autoComplete='current-password' required />
+                <button className='button3' onClick={handleSignIn} type='button'>Sign in</button>
+            </form>
             <div className='flexBox2'>
                 <button className='button1-medium'>Forgot password?</button>
                 <button className='button1-medium'>Sign up</button>
