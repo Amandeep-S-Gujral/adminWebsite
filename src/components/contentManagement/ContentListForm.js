@@ -15,7 +15,7 @@ const ContentListForm = ({ data, handleClose, handleChange, handleSubmit }) => {
                     </div>
                     <div>
                         <label>Type</label>
-                        <select name='type' id='typ' onChange={handleChange} value={data.typ}>
+                        <select name='type' id='type' onChange={handleChange} value={data.type}>
                             <option value='article'>Article</option>
                             <option value='book'>Book</option>
                             <option value='page'>Page</option>
@@ -23,19 +23,19 @@ const ContentListForm = ({ data, handleClose, handleChange, handleSubmit }) => {
                     </div>
                     <div>
                         <label>Category</label>
-                        <input type='text' id='cat' onChange={handleChange} value={data.cat} />
+                        <input type='text' id='category' onChange={handleChange} value={data.category} />
                     </div>
                     <div>
                         <label>Title</label>
-                        <input type='text' id='tle' onChange={handleChange} value={data.tle} />
+                        <input type='text' id='title' onChange={handleChange} value={data.title} />
                     </div>
                     <div>
                         <label>Sub Title</label>
-                        <input type='text' id='subTle' onChange={handleChange} value={data.subTle} />
+                        <input type='text' id='subTitle' onChange={handleChange} value={data.subTitle} />
                     </div>
                     <div>
                         <label>Image</label>
-                        <input type='url' id='img' onChange={handleChange} placeholder='https://imageUrl.com' value={data.img} />
+                        <input type='url' id='image' onChange={handleChange} placeholder='https://imageUrl.com' value={data.image} />
                     </div>
                     <div>
                         <label>URL</label>

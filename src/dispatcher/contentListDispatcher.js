@@ -8,9 +8,9 @@ class ContentListDispatcher {
         this.container = container
     }
 
-    async getContentListByType(typ) {
+    async getContentListByType(type) {
         const req = this.apiRequestModel.setHttpMethod('GET').setBodyNull().setAuth(this.token)
-        this.url.search = new URLSearchParams({ typ })
+        this.url.search = new URLSearchParams({ type })
         return await this.fetch(this.url, {...req})
     }
 

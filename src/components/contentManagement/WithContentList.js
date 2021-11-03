@@ -10,7 +10,7 @@ const WithContentList = (container) => {
                 data: {},
                 listFormData: {},
                 filter: {
-                    category: 'article'
+                    type: 'article'
                 }
             }
             this.fetchList = this.fetchList.bind(this)
@@ -32,7 +32,7 @@ const WithContentList = (container) => {
             }
         }
         async fetchList() {
-            const data = await container.contentListDispatcher().getContentListByType(this.state.filter.category)
+            const data = await container.contentListDispatcher().getContentListByType(this.state.filter.type)
             this.setState({ data })
         }
 

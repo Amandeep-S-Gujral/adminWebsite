@@ -3,12 +3,12 @@ const contentListModelFactory = () => new ContentListModel()
 class ContentListModel{
     constructor(){
         this.cid = ''
-        this.tle = 
-        this.subTle = ''
-        this.img = ''
+        this.title = 
+        this.subTitle = ''
+        this.image = ''
         this.url = ''
-        this.cat = ''
-        this.typ='article'
+        this.category = ''
+        this.type='article'
     }
 
     getEmpty(){

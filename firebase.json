@@ -1,8 +1,7 @@
 {
   "hosting": {
-    "public": "build",
     "site": "admin-prdnotesdotcom",
-    "target": "admin",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -16,4 +15,3 @@
     ]
   }
 }
-

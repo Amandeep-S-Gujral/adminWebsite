@@ -19,9 +19,9 @@ const ContentListTable = ({ container, data, handleView }) => {
             <tbody>
                 {data.map(obj => <tr key={obj.cid}>
                     <td className="centerAlign">{obj.cid}</td>
-                    <td>{obj.tle}</td>
-                    <td>{obj.typ}</td>
-                    <td>{obj.cat}</td>
+                    <td>{obj.title}</td>
+                    <td>{obj.type}</td>
+                    <td>{obj.category}</td>
                     <td>{new Date(obj.timestamp).toDateString()}</td>
                     <td>{`${obj.post}`}</td>
                     <td className="centerAlign"><a href={obj.url} className="link1" target="_blank" rel="noreferrer">click</a></td>

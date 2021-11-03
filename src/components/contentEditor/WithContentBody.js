@@ -30,8 +30,8 @@ const WithContentBody = (container) => {
             let meta = container.metaDataModel().getEmpty()
             const res = await container.contentBodyDispatcher().getContentBodyByCid(this.state.cid)
             const data = res.pop()
-            if (data.bdy !== undefined) {
-                editorState = container.parser().rawToEditorState(data.bdy)
+            if (data.body !== undefined) {
+                editorState = container.parser().rawToEditorState(data.body)
             }
             if (data.meta !== undefined) {
                 meta = JSON.parse(data.meta)
@@ -50,10 +50,11 @@ const WithContentBody = (container) => {
             return
         }
 
-        handlePost() {
+        async handlePost() {
             const data = this.state.data
             data.post = !data.post
             this.setState({ data })
+            await container.contentBodyDispatcher().setContentBodyAttribute(this.state.data)
             return
         }
 
@@ -72,9 +73,13 @@ const WithContentBody = (container) => {
 
         async handleSave() {
             const data = this.state.data
-            data.bdy = container.parser().editorStateToRaw(this.state.editorState)
-            data.meta = JSON.stringify(this.state.meta)
+            const meta = this.state.meta
+            meta.url = data.url
+            console.log(meta)
+            data.body = container.parser().editorStateToRaw(this.state.editorState)
+            data.meta = JSON.stringify(meta)
             await container.contentBodyDispatcher().setContentBody(data)
+            window.location.reload()
             return
         }
 
@@ -97,7 +102,7 @@ const WithContentBody = (container) => {
                             handleSave={this.handleSave}
                             handlePost={this.handlePost}
                             handleSection={this.handleSection}
-                            checked={data.post}
+                            post={data.post}
                         />
                         {section === 'editor' && <container.TextEditor
                             container={container}

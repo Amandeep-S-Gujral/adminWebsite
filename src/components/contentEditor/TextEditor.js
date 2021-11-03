@@ -12,6 +12,15 @@ const TextEditor = ({ container, editorState, onEditorStateChange }) => {
                 toolbar={{
                     list: { inDropdown: true },
                     textAlign: { inDropdown: true },
+                    image: {
+                        previewImage: true,
+                        alt: { present: true, mandatory: true },
+                        defaultSize: {
+                            height: 'auto',
+                            width: '100%',
+                        },
+                        uploadEnabled: true
+                    }
                 }}
             />
         </div>

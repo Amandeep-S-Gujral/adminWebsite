@@ -3,11 +3,10 @@ const contentBodyModelFactory = () => new ContentBodyModel()
 class ContentBodyModel {
     constructor() {
         this.cid 
-        this.bdy
+        this.body
         this.meta
-        this.typ
+        this.type
         this.url
-
     }
 
     setValue()

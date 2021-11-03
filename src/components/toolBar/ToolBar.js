@@ -11,7 +11,7 @@ class ToolBar extends React.Component {
             <div className="bar2">
             <div></div>
                 <div>
-                    <select name='type' className='button4' id='category' onChange={this.props.handleSearch}>
+                    <select name='type' className='button4' id='type' onChange={this.props.handleSearch}>
                         <option value='article'>Article</option>
                         <option value='book'>Book</option>
                         <option value='page'>Page</option>
