@@ -15,7 +15,7 @@ const MetaTagForm = ({url, handleChange, meta}) => {
                 </div>
                 <div>
                     <label>Image</label>
-                    <input id='image' typ='url' onChange={handleChange} value={meta.image} placeholder='https://imageUrl.com' />
+                    <input id='image' type='url' onChange={handleChange} value={meta.image} placeholder='https://imageUrl.com' />
                 </div>
                 <div>
                     <label>Keywords</label>

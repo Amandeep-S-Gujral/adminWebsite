@@ -2,7 +2,6 @@ import Container from "../container";
 
 import { configFactory } from "../config";
 import apiRequestModelFactory from "../model/apiRequestModel";
-import {metaDataModelFactory} from "../model/metaDataModel"
 
 import {parserFactory} from '../utils/parser'
 import contentBodyDispacherFactory from "../dispatcher/contentBodyDispatcher";
@@ -20,6 +19,8 @@ import ContentEditorToolBar from '../components/contentEditor/ContentEditorToolB
 import TextEditor from "../components/contentEditor/TextEditor";
 import Loading from '../components/notifier/Loading'
 import MetaTagForm from "../components/contentEditor/MetaTagForm";
+import DetailForm from "../components/contentEditor/DetailForm";
+import StoreForm from "../components/contentEditor/StoreForm";
 import WithContentBody from "../components/contentEditor/WithContentBody";
 
 const container = new Container()
@@ -27,7 +28,6 @@ const cookies = new Cookies()
 
 container.setModel('config', configFactory)
 container.setModel('apiRequestModel', apiRequestModelFactory)
-container.setModel('metaDataModel', metaDataModelFactory)
 
 container.setInternalModule('parser', parserFactory)
 container.setInternalModule('contentBodyDispatcher', contentBodyDispacherFactory)
@@ -47,6 +47,8 @@ container.setComponent('NavMenu', NavMenu)
 container.setComponent('TextEditor', TextEditor)
 container.setComponent('Loading', Loading)
 container.setComponent('MetaTagForm', MetaTagForm)
+container.setComponent('DetailForm', DetailForm)
+container.setComponent('StoreForm', StoreForm)
 
 const ContentEditor = WithContentBody(container.getContainer())
 

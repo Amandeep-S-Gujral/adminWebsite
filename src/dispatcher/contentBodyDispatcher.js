@@ -14,6 +14,12 @@ class ContentBodyDispatcher {
         return await this.fetch(this.url, { ...req })
     }
 
+    async getStoreList() {
+        const req = this.apiRequestModel.setHttpMethod('GET')
+        this.url = this.container.config().getValue('baseUrl') + '/adminDoc/online-book-store'
+        return await this.fetch(this.url, {...req})
+    }
+
     async setContentBody(data) {
         await this.container.authDispatcher().getIdToken()
         const req = this.apiRequestModel.setHttpMethod('PATCH').setBody(data).setAuth(this.token)
