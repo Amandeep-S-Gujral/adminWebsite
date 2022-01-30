@@ -7,7 +7,6 @@ class ApiRequestModel {
             "content-type": "application/json",
             authorization: null
         }
-        this.credentials = 'include'
         this.mode = 'cors'
         this.body = null
     }

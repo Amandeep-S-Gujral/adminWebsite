@@ -8,6 +8,7 @@ const WithContentBody = (container) => {
                 cid: this.props.match.params.cid,
                 path: this.props.match.url,
                 data: null,
+                storeList: [],
                 editorState: container.EditorState.createEmpty(),
                 section: 'editor',
             }
@@ -24,8 +25,8 @@ const WithContentBody = (container) => {
         }
 
         async componentDidMount() {
-            this.fetchBody()
-            this.fetchStoreList()
+            await this.fetchStoreList()
+            await this.fetchBody()
         }
 
         //get calls
@@ -33,7 +34,9 @@ const WithContentBody = (container) => {
             let editorState = this.state.editorState
             let meta = {}
             let detail = {}
-            let store = []
+            let store = this.state.storeList.map(storeName => {
+                return { storeName, url: '' }
+            })
             const res = await container.contentBodyDispatcher().getContentBodyByCid(this.state.cid)
             const data = res.pop()
             if (data.body !== undefined) {
@@ -54,7 +57,8 @@ const WithContentBody = (container) => {
         async fetchStoreList() {
             const data = await container.contentBodyDispatcher().getStoreList()
             const storeList = data.pop().body
-            return this.setState({ storeList })
+            this.setState({ storeList })
+            return
         }
 
         //state management
@@ -96,11 +100,9 @@ const WithContentBody = (container) => {
                     }
                 })
             }
-
             if (result.length === 0) {
                 store.push({ storeName, url })
             }
-
             this.setState({ store })
             return
         }
@@ -133,7 +135,7 @@ const WithContentBody = (container) => {
         }
 
         render() {
-            const { data, section, path, editorState, meta, storeList, store } = this.state
+            const { data, section, path, editorState, meta, detail, store } = this.state
 
             //api response catch block
             if (data === null) {
@@ -172,10 +174,10 @@ const WithContentBody = (container) => {
                         />}
                         {section === 'detail' && <container.DetailForm
                             handleChange={this.handleDetailChange}
+                            detail={detail}
                         />
                         }
                         {section === 'store' && <container.StoreForm
-                            storeList={storeList}
                             store={store}
                             handleChange={this.handleStoreChange}
                         />

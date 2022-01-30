@@ -7,23 +7,31 @@ const DetailForm = ({ detail, handleChange }) => {
             <form>
                 <div>
                     <label>Book author</label>
-                    <input id='bookAuthor' onChange={handleChange} />
+                    <input id='bookAuthor' onChange={handleChange} value={detail.bookAuthor} />
                 </div>
                 <div>
                     <label>Language</label>
-                    <textarea id='language' onChange={handleChange} />
+                    <textarea id='language' onChange={handleChange} value={detail.language}/>
                 </div>
                 <div>
                     <label>Publisher</label>
-                    <input id='publisher' onChange={handleChange} />
+                    <input id='publisher' onChange={handleChange} value={detail.publisher} />
                 </div>
                 <div>
                     <label>Nos of pages</label>
-                    <input type='number' id='NosOfPages' onChange={handleChange} />
+                    <input type='number' id='noOfPages' onChange={handleChange} value={detail.noOfPages} />
                 </div>
                 <div>
                     <label>ISBN</label>
-                    <input id='ISBN' onChange={handleChange} />
+                    <input id='isbn' onChange={handleChange} value={detail.isbn} />
+                </div>
+                <div>
+                    <label>Front image</label>
+                    <input type='url' id='frontImage' onChange={handleChange} value={detail.frontImage} />
+                </div>
+                <div>
+                    <label>Back image</label>
+                    <input tyoe = 'url' id='backImage' onChange={handleChange} value={detail.backImage} />
                 </div>
             </form>
         </div>
